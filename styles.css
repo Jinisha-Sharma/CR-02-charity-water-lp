@@ -25,27 +25,57 @@ Fonts:
 
 /* Set up the main font and background color for the whole page */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
+  font-family: 'Avenir', 'Proxima Nova', sans-serif;
   margin: 0;
-  padding: 0;
+  background-color: #fff;
   color: #222;
+  scroll-behavior: smooth;
 }
 
-/* Add a slight shadow and rounded corners to each section for depth */
-section {
-  background: #fff; /* White background for sections */
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
-  margin: 24px 10px; /* Space between sections */
-  padding: 24px 16px;
+.navbar {
+  background-color: #FFC907;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.5rem 1.5rem;
+  border-bottom: 2px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  display: flex;
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  height: 32px;
+  width: auto;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.navbar .donate-link {
+  background: white;
+  color: #FFC907;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.navbar a:hover {
+  color: #2E9DF7;
 }
 
 /* Hero Section Styles */
 .hero {
   position: relative; /* Needed for overlay */
   /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
+  background-image: url(https://cdn2.dropmarkusercontent.com/52043/2b415c76d97fa4f265a022061bf7ca453982354311b07dc4d7e3ecf12db31c15/preview/Madagascar_2019_CG-0118.jpg?Expires=1752198120&Signature=VZPpmIWyWmSN0y9TSRh~1IEyiodvoszbyJFW8SlsHVXQ7u8MMDX1Ia5dcUOnHcsjJnxh6vWtCWurkJ97RIOR8TbgCvqAzSZTbnchtFeVBSymjrXUdcTmp7wQftBXW9xEYMyJpCLepxmb8XYZ7vGKluv8hyc5culUJBujb6THKHwYwZnT2zVsZoO9n950vsg5VapEY-BMZhsnxYd2m3AMoDkdp50i0bzoWw573k3thPcqygpN7NzYc9O8QThbhJafWidQYLZJ-D56asBYZDjYbl4cW~59TD69L3gj8vo9PjzYFJLasNADaErDNubAm7wzVnw3N0BEzmiNjPkUitSdJQ__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ);
   background-size: cover;      /* Make the image cover the whole area */
   background-position: center; /* Center the image */
   background-repeat: no-repeat;
@@ -76,37 +106,141 @@ section {
   text-shadow: 0 1px 4px rgba(0,0,0,0.12);
 }
 
-/* Story Section Styles */
-.story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
-  color: #222;
-  text-align: center;
-  padding: 30px 20px;
+/* LEFT: Background Image + Text */
+.donate-left {
+  flex: 1 1 50%;
+  background: url(https://cdn2.dropmarkusercontent.com/52043/5ccbef74a65b4506aad7e600689c5dcd09780bb7c910a95c533366660084dd6a/preview/Zimbabwe_2022_CG-1083.jpg?Expires=1752194225&Signature=Vq8nuwkjvEYM3MN77iSj5Bc4O8tqA5v1yHcXznKj2vWTpRMiJ1VVxmvr32lAG4dwftsNRIF0K0z3GkhfEZwF0NDq8thI-Rhm9H1iFDWpdNQYh4bQlDpiUSTGa8rBOEpY9bHTnsNNXfTue4olfl4wU0kNLGiI-abltSkmh6tvCNdG2Dt-O03HjcTcbp4hvn3dRpFuhiMQFjEGeuWUg8imDUcJBrGLUfjRA8up8cyFdunXeKeueelqiDMIaZtPBq91Rz5ftgBuwyJPX~3eKvsfSANkmOLaVoCiIvvR1NAyRlr57ctKn1N0L2CHTKDoaTAIR54Om0K3daRN6vWP4y~V7A__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ) center/cover no-repeat;
+  padding: 4rem 2rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
-/* Add accent color to section headings */
-h2 {
-  color: #2E9DF7; /* Primary blue */
-  margin-top: 0;
+.donate-left h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.donate-left p {
+  font-size: 1.1rem;
+  max-width: 520px;
+  margin-bottom: 1.25rem;
+}
+
+.donate-left a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.legal-text {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+/* RIGHT: Donation Box */
+.donate-right {
+  flex: 1 1 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.donation-box {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.donation-box h2 {
+  color: #FFC907;
+  margin-bottom: 1rem;
+}
+
+.donation-options {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.freq {
+  padding: 0.5rem 1rem;
+  background: #eee;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
   font-weight: bold;
 }
 
-/* Call-to-Action Section Styles */
-.call-to-action {
-  background-color: #FFC907; /* Primary Yellow */
-  color: #222;
-  text-align: center;
-  padding: 30px 20px;
+.freq.selected {
+  background: #FFC907;
+  color: #fff;
 }
 
-/* Style the impact story image */
-.impact-image {
+.currency, .custom-amount {
   width: 100%;
-  max-width: 320px;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
+  padding: 0.75rem;
+  margin: 1rem 0;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
 }
+
+.amount-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.amount-buttons button {
+  flex: 1;
+  padding: 0.75rem;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.comment-box {
+  display: block;
+  text-align: left;
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
+
+.next-button {
+  background: #FFC907;
+  color: #fff;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.next-button:hover {
+  background: #2E9DF7;
+}
+
+.powered {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: #888;
+}
+
 
 /* Donate Button Styles */
 .donate-button {
@@ -125,11 +259,85 @@ h2 {
   cursor: pointer;
 }
 
-/* Change button color when hovered */
-.donate-button:hover {
-  background-color: #159A48; /* Dark Green */
-  transform: translateY(-2px) scale(1.04); /* Slight lift */
+
+/* Story Section Styles */
+.story {
+  background-color: #8BD1CB; /* Brand Light Blue */
+  color: #222;
+  text-align: center;
+  padding: 4rem 2rem;
 }
+
+.story h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.story p {
+  font-size: 1.3rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.call-to-action {
+  background-color: #FFC907; /* Brand Yellow */
+  color: #222;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.call-to-action h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.call-to-action p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.impact-story {
+  background: #fff;
+   text-align: center;
+  padding: 4rem 2rem;
+}
+
+.impact-story h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Side-by-side layout with image on left */
+.impact-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Make the image much larger and scale up on bigger screens */
+.impact-image {
+  flex: 1 1 600px; /* allows image to take up more space */
+  width: 100%;
+  max-width: 700px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* The text content on the right side */
+.impact-content p {
+  flex: 1 1 400px;
+  font-size: 1.3rem;
+  line-height: 1.7;
+  max-width: 500px;
+}
+
 
 /* Add some spacing between sections */
 section {
@@ -187,7 +395,7 @@ section {
     align-items: center;     /* Vertically center items */
     justify-content: center; /* Center the whole group */
     gap: 28px;               /* Space between image and text */
-    text-align: left;
+    text-align: center;
     max-width: 800px;
     margin: 0 auto;
   }
